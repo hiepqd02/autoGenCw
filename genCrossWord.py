@@ -30,28 +30,28 @@ def main():
     driver.get("http://localhost:4002/crossword-puzzle-maker")
 
     # Login
-    # WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-    #     (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div/div/div'))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+        (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div/div/div'))).click()
 
-    # WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-    #     (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[2]/div/div'))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+        (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[2]/div/div'))).click()
 
-    # for i in range(10):
-    #     driver.find_element(
-    #         By.XPATH, '/html/body/div[3]/div[3]/div/div/div[4]/div[1]').click()
+    for i in range(10):
+        driver.find_element(
+            By.XPATH, '/html/body/div[3]/div[3]/div/div/div[4]/div[1]').click()
 
-    # driver.switch_to.alert.accept()
+    driver.switch_to.alert.accept()
 
-    # WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-    #     (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div/div/div'))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+        (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div/div/div'))).click()
 
-    # WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-    #     (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[2]/div/div'))).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+        (By.XPATH, '//*[@id="root"]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[2]/div/div'))).click()
 
-    # WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-    #     (By.XPATH, '//*[@id=":r7:"]'))).send_keys('worksheetzone.ad@gmail.com', Keys.ENTER)
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
+        (By.XPATH, '//*[@id=":r7:"]'))).send_keys('worksheetzone.ad@gmail.com', Keys.ENTER)
 
-    # time.sleep(5)
+    time.sleep(5)
 
     for el in data:
         topic = el["topic"]
@@ -87,11 +87,10 @@ def main():
                 layout_tab.click()
                 options = driver.find_elements(By.XPATH, '//*[@id=":r5:"]/li')
                 option = random.choice(options)
-                if option == options[-1]:
+                if option != options[0]:
                     driver.execute_script(
                         "arguments[0].scrollIntoView(true);", option)
-                option.click()
-                # time.sleep(1000)
+                    option.click()
 
                 if random.choice([0, 1]):
                     WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
