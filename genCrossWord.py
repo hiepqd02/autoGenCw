@@ -27,7 +27,8 @@ def main():
     driver.set_window_size(1920, 1080)
     # driver.implicitly_wait(10)
 
-    driver.get("http://localhost:4002/crossword-puzzle-maker")
+    # driver.get("http://localhost:4002/crossword-puzzle-maker")
+    driver.get('https://worksheetzone.org/crossword-puzzle-maker')
 
     # Login
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
@@ -82,12 +83,12 @@ def main():
                     title_element, 100, 100).click().perform()
 
                 # Random layout
-                layout_tab = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-                    (By.XPATH, '//*[@id="CROSSWORD"]/div[2]/div/div[2]/div[1]/div[2]/div')))
-                layout_tab.click()
                 options = driver.find_elements(By.XPATH, '//*[@id=":r5:"]/li')
                 option = random.choice(options)
                 if option != options[0]:
+                    layout_tab = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+                        (By.XPATH, '//*[@id="CROSSWORD"]/div[2]/div/div[2]/div[1]/div[2]/div')))
+                    layout_tab.click()
                     driver.execute_script(
                         "arguments[0].scrollIntoView(true);", option)
                     option.click()
